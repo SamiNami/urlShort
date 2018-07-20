@@ -1,4 +1,3 @@
-// todo, add keys to heroku
 const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
@@ -8,6 +7,11 @@ mongoose.connect(keys.mongoURI);
 const app = express();
 
 app.use(express.json());
+
+var path = require('path');
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/index.html'));
+});
 
 require('./routes/routes')(app);
 
