@@ -36,15 +36,16 @@ function sendContentToAPI(content) {
             return res.json();
         })
         .then(data => {
-            console.log(window.location);
-            let div = document.getElementById('data');
-            const redirect =
-                window.location.origin + '/api/shorturl/' + data.short_url;
-
-            div.innerHTML +=
-                '<br>Orignal: ' + data.original_url + '<br> Short URL: ';
-
-            div.innerHTML += "<a href='" + redirect + "'> " + redirect + '</a>';
+            displayData(data);
         });
+}
+
+function displayData(data) {
+    let div = document.getElementById('data');
+    const redirect = window.location.origin + '/api/shorturl/' + data.short_url;
+
+    div.innerHTML += '<br>Orignal: ' + data.original_url + '<br> Short URL: ';
+
+    div.innerHTML += "<a href='" + redirect + "'> " + redirect + '</a>';
 }
 </script>
