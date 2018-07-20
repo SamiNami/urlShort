@@ -1,4 +1,4 @@
-#SIMPLE URL SHORTENER
+SIMPLE URL SHORTENER
 
 GUI: https://gentle-retreat-59436.herokuapp.com/
 
