@@ -42,6 +42,11 @@ function sendContentToAPI(content) {
 
 function displayData(data) {
     let div = document.getElementById('data');
+    div.innerHTML = '';
+    if (data.error) {
+        return (div.innerHTML = 'Error, bad url');
+    }
+
     const redirect = window.location.origin + '/api/shorturl/' + data.short_url;
 
     div.innerHTML += '<br>Orignal: ' + data.original_url + '<br> Short URL: ';
