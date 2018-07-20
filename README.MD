@@ -1,3 +1,5 @@
+#SIMPLE URL SHORTENER
+
 GUI: https://gentle-retreat-59436.herokuapp.com/
 
 I can POST a URL to https://gentle-retreat-59436.herokuapp.com/api/shorturl/new and I will receive a shortened URL in the JSON response.
