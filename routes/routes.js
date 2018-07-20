@@ -13,10 +13,9 @@ module.exports = app => {
 
             const existingUrl = await Urls.findOne({ originalUrl: url });
             if (existingUrl) {
-                console.log('it was there');
                 return res.json(stripMongoData(existingUrl));
             }
-            console.log('and NEEEW');
+
             const count = await Urls.countDocuments({});
             const newUrl = await new Urls({
                 originalUrl: url,
@@ -25,6 +24,15 @@ module.exports = app => {
 
             res.json(stripMongoData(newUrl));
         });
+    });
+    app.get('/api/shorturl/:id', async (req, res) => {
+        const existingUrl = await Urls.findOne({
+            shortUrl: parseInt(req.params.id)
+        });
+        if (existingUrl) {
+            return res.redirect(existingUrl.originalUrl);
+        }
+        res.send('not found');
     });
 };
 
