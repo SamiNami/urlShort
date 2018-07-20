@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const urlsSchema = new Schema({
-    short: String,
-    full: String
+    originalUrl: String,
+    shortUrl: Number
 });
 
 mongoose.model('urls', urlsSchema);
