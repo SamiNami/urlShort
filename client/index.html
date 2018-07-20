@@ -43,7 +43,8 @@ function sendContentToAPI(content) {
 
             div.innerHTML +=
                 '<br>Orignal: ' + data.original_url + '<br> Short URL: ';
-            div.innerHTML += redirect;
+
+            div.innerHTML += "<a href='" + redirect + "'> " + redirect + '</a>';
         });
 }
 </script>
